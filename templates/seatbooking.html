@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+{%extends "index.html"%}
+
+{%block content%}
+<head>
+    <title>Bus Tickets,Flights,Trains tickets</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .booking{
+        list-style-type: none;
+
+    }
+
+    .booking input{
+        padding: 20px;
+    }
+
+    .booking input[type=checkbox]{
+        padding: 50px;
+    }
+    .wheel{
+        padding: 20px;
+        margin-left: 290px;
+    }
+</style>
+</head>
+<body>
+<section>
+    <h1 >Please Select Your Seats</h1>
+
+    <div class="container">
+
+        <div class="booking" style="width:400px;height:600px;border:1px solid #000;">
+            <form method="POST" >
+            <div class="wheel">
+                <a><img src="../static/images/steering1.png" class="rounded-circle" height="50px" width="50px" alt="Avatar" class="avatar"></a>
+            </div>
+            
+            <ul class="booking">
+               <!--- <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option">
+                <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option">
+                <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option" >
+                <label class="form-check-label" for="inlineCheckbox3">3</label>
+                </div> -->
+               <li class="seat">
+                <input type="checkbox" name="A" value="1"/>
+                <label for="A1">A1</label>
+                </li>
+                <li class="seat">
+                <input type="checkbox" name="A" value="2" />
+                <label for="A2">A2</label>
+                </li>
+                <li class="seat">
+                <input type="checkbox" name="A" value="3"/>
+                <label for="A3">A3</label>
+                </li>
+                <li class="seat">
+                <input type="checkbox" name="A" value="4"/>
+                <label for="A4">A4</label>
+                </li>
+            </ul>
+            <button type="submit" class="btn btn-outline-info" >Book seat</button>
+            </form>
+        </div>
+    </div>
+    
+</section>
+</body>
+</html>
+
+{%endblock%}

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bus Tickets,Flights,Trains tickets</title>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>   
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+  
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+    <style>
+        #chatIcon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #007bff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+          }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+       
+        .section-follow .fa-2x{
+            margin: 5px 10px;
+        }
+        
+        /*footer*/
+        p{
+            color: #999;
+            line-height: 25px;
+        }
+        h2,h3{
+            color: #fff;
+        }
+        h2{
+            font-size: 18px;
+        }
+        .footer-top{
+            background:#111;
+            padding: 80px 0;
+        }
+        .segment-one h3{
+            font-family: courgette;
+            color: #fff;
+            letter-spacing: 3px;
+            margin: 10px 0;
+        }
+
+        .segment-two h3{
+            color: #fff;
+            font-family: Poppins;
+            text-transform: uppercase;
+            
+        }
+
+        .segment-two h3:before{
+            content: '|';
+            color: #c65039;
+            padding-right: 10px;
+        }
+
+        .segment-two ol{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .segment-two ol li{
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            line-height: 40px;
+        }
+
+        .segment-two ol li a{
+            color: #999;
+            text-decoration: none;
+        }
+
+        .segment-three h3{
+            color: #fff;
+            font-family: Poppins;
+            text-transform: uppercase;
+            
+        }
+
+        .segment-three h3:before{
+            content: '|';
+            color: #c65039;
+            padding-right: 10px;
+        }
+
+        .segment-three ol{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .segment-three ol li{
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            line-height: 40px;
+        }
+
+        .segment-three ol li a{
+            color: #999;
+            text-decoration: none;
+        }
+
+        .segment-four h2{
+            color: #fff;
+            font-family: Poppins;
+            text-transform: uppercase;
+        }
+
+        .segment-four h2:before{
+            content: '|';
+            color: #c65039;
+            padding-right: 10px;
+        }
+        .segment-four a{
+            background: #494848;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 50%;
+        }
+        .segment-four a i{
+            font-size: 20px;
+            color: #fff;
+            padding: 10px 12px;
+        }
+
+        .footer-bottom-text{
+            text-align: center;
+            background: #000;
+            line-height: 75px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header>
+    <!--Navbar-->
+    <section class="section-follow teal darken-2 white-text center">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            
+            <div class="logo">
+            <a href="/"><img src="../static/images/logo.png" class="rounded-circle" height="50px" width="50px" alt="Avatar" class="avatar"></a>
+            </div>
+            <a class="navbar-brand text-warning" href="/home">Time Travellers</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="imgsetting collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item active">
+                        <a class="nav-link text-warning" href="/Bus"> 
+                            <i class="fa fa-bus fa-2x text-white"></i> <br/>                       
+                             Bus <span class="sr-only">(current)</span></a>
+
+                    </li>
+                    <li class="nav-item active">
+                        
+                        
+                        <a class="nav-link text-warning" href="/Trains">
+                            <i class="fa fa-train fa-2x text-white "></i>
+                            <br/>
+                            Trains<span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-warning" href="/Flights">
+                            <i class="fa fa-plane fa-2x text-white "></i><br/>
+                            Flights <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-warning " href="/Hotels">
+                            <i class="fa fa-home fa-2x text-white" href="/Hotels"></i>
+                            <br/>
+                            Hotels
+                        </a>
+                    </li>
+                   <!-- <li class="dropdown">
+                        <a class=" dropdown-toggle text-warning" data-toggle="dropdown" href="#">Booking Category<Span class="Caret"></span></a>
+                    <ul class="dropdown-menu bg-dark text-warning ">
+                        {% for cat in session["cats"] %}
+                        <li><a  class="text-warning" href ="/ShowProducts/{{cat[0]}}">{{cat[1]}} </a></li>
+                    {% endfor %}
+                    </ul>
+                    </li>-->
+                </ul>
+
+                {%if session["adlogin"]==True%}
+                    <div class="navbar-nav ml-auto text-center">
+                        <li class="nav-item active"><i class="fa fa-list-alt fa-2x text-white"></i>
+                        <a class="nav-link text-warning" href="{{url_for('Category')}}">Category</a></li>
+                    </div>
+                    <div>
+                        <li class="nav-item active"><i class="fa fa-product-hunt fa-2x text-white"></i>
+                        <a class="nav-link text-warning" href="{{url_for('showAllProducts')}}">Product</a></li>
+                    </div>
+                    <div>
+                        <li class="nav-item active"><i class="fa fa-user fa-2x text-white"></i>
+                        <a class="nav-link text-warning" href="{{url_for('Users')}}" >Users</a></li>
+                    </div>
+                    <script>
+                        function display()
+                        {
+                            alert("You are 'sucessfully' logout");
+                        }
+                    </script>
+                    <div>
+                        <li class="nav-item active"><i class="fa fa-sign-out fa-2x text-white"></i>
+                        <a class="nav-link text-warning" href="{{url_for('adlogout')}}" >LogOut</a></li>
+                    </div>
+                {%else%}
+                
+
+                
+                
+
+
+                    <!--<li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-warning" id="navbarDropdown" role="button" data-toggle="dropdown"  href="#" aria-haspopup="true" aria-expanded="false">Manage Bookings</a>
+                            
+                        <div class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-warning" href="#">Print/Download</a>
+                            <a class="dropdown-item text-warning" href="#">Cancel Ticket</a>
+                            <a class="dropdown-item text-warning" href="#">Reschedule</a>
+                            <a class="dropdown-item text-warning" href="#">Check Refund Status</a>
+                        </div>
+                    </li>--> 
+
+
+<!--For User LOgin & Logout -->
+
+                    {%if session["login"]==True%}  
+                        <script>
+                            function display()
+                            {
+                                alert("You are 'sucessfully' logout");
+                            }
+                        </script>
+                        <div class="navbar-nav ml-auto text-center">
+                            <li class="nav-item active">
+                                <i class="fa fa-ticket fa-2x text-white"></i>
+                                <a class="nav-link text-warning " href="/ShowAllCartItems">Bookings</a>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="nav-item active">
+                            <i class="fa fa-user fa-2x text-white"></i>
+                            <a class="nav-link text-warning">{{session["user"]}}</a>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="nav-item active"><i class="fa fa-sign-out fa-2x text-white"></i>
+                            <a class="nav-link text-warning" href="{{url_for('logout')}}" > LogOut</a></li>
+                        </div>
+                    {%else%}
+    
+                <div class="navbar-nav ml-auto text-center">
+                    <div class="corner-wrapper fr text-center">
+                        <li class="nav-item active">
+                            <i class="fa fa-user-circle fa-2x text-white" ></i>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle nav-link text-warning" data-toggle="dropdown" href="#"><span ></span>Login
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="nav-link text-warning" href="/adlogin">Admin Login</a></li> 
+                                    <li><a class="nav-link text-warning" href="/login"> User Login</a></li>
+                                </ul>
+                            </li>
+                        </li>
+                    </div>
+
+                </div>
+                    {%endif%}
+                {%endif%}
+            </div>
+        </nav>
+    </section>
+</header>            
+    
+
+
+       
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith%}
+
+{%block content%}
+   
+<!--Slider-->
+    <section>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../static/images/home1.jpeg" alt="Los Angeles" width="800" height="500">
+                    <div class="carousel-caption">
+                        <h3>Get</h3>
+                       
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/home2.jpg" alt="Chicago" width="800" height="500">
+                    <div class="carousel-caption">
+                        <h3>Ready</h3>
+                       
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/home3.jpg" alt="New York" width="800" height="500">
+                    <div class="carousel-caption">
+                        <h3>To Travel</h3>
+                       
+                    </div>
+                </div>
+           
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a> 
+            </div>          
+        </div>
+       
+    </section>
+     
+<!--slider end-->
+  
+
+
+
+    <!--Offers part -->
+
+    <section>
+        <div class=container>
+            <h1 class="text-center text-capitalize pt-5">offers in store for you</h1>
+            <hr class="w-25 mx-auto pt-5 ">
+
+            <!--Cards-->
+            <div class="row text-center mb-5">
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer14.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Exciting Deals</h4>
+                            <p class="card-text">Valid till:10th July 2025 </p>
+                            <a href="/offers" class="btn btn-primary">Click here</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer4.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">PayPal Train offers</h4>
+                            <p class="card-text">Valid till:10th July 2025</p>
+                            <a href="/offers" class="btn btn-primary">Click here</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer3.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Ferdral Bank offers</h4>
+                            <p class="card-text">Valid till:10th July 2025</p>
+                            <a href="/offers" class="btn btn-primary">Click here</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+           
+        </div>
+    </section>
+ <!--end of Cards-->
+
+
+ 
+    <!--for contact-->
+    <section class="bg-dark">
+        
+        <article class="py-5 text-center text-white">
+        
+        <h1 class="text-center text-capitalize  pt-2 ">Cities to Travel</h1>
+        <p class="text-center ">The most searched cities</p>
+
+       
+            
+
+            
+                        
+                <div class="container">                
+                        <div class="row text-center mb-5">
+                           <div class="col-lg-3 col-md-3 col-12">
+                                <div class="card" >
+                                    <img class="card-img-top" src="../static/images/paris.jpg" alt="Card image">
+                                    <div class="card-body">
+                                        <a class="text-center text-secondary">Paris</a>
+                                    </div>
+                                </div>
+                            </div>
+                           
+
+                                  
+                            <div class="col-lg-3 col-md-3 col-12 ">
+                                <div class="card" >
+                                    <img class="card-img-top" src="../static/images/gateway1.jpg" alt="Card image">
+                                    <div class="card-body">
+                                        <a class="text-center text-secondary">Mumbai</a>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+            
+                            
+                            <div class="col-lg-3 col-md-3 col-12">
+                                <div class="card" >
+                                    <img class="card-img-top" src="../static/images/new york.jpg" alt="Card image">
+                                    <div class="card-body">
+                                        <a class="text-center text-secondary">New York</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        
+                           
+                            <div class="col-lg-3 col-md-3 col-12">
+                                <div class="card">
+                                    <img class="card-img-top" src="../static/images/london.jpg" alt="Card image">
+                                    <div class="card-body">                        
+                                        <a class="text-center text-secondary">London</a>
+                                    </div>
+                                </div>
+                            </div>                           
+                    
+                </div>
+           
+        </article>
+    </section>
+    
+
+
+<!--gallery start-->
+    <section>
+        <div class=container>
+            <h1 class="text-center text-capitalize  pt-5">Top Destinations</h1>
+            <p class="text-center text-secondary">The most searched countries</p>
+            <hr class="w-25 mx-auto pt-5 ">
+
+            <div class="row text-center ">
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/india.jpg" alt="" class="img-fluid">
+                   <div class="carousel-caption">
+                        <h3>Incredible India!</h3>
+                        <p>India</p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/china.jpg" alt="" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h3>China</h3>
+                        <p class="text-white">China like never before</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/dubai.jpg" alt="" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h3>Dubai</h3>
+                        <p class="text-white">city of wonders</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/canada.jpg" alt="" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h3>Canada</h3>
+                        <p class="text-white">Keep exploring</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/singapore.jpg" alt="" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h3>Singapore</h3>
+                        <p class="text-white">Passion made possible -visit singapore</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/africa.jpg" alt="" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h3>Africa</h3>
+                        <p class="text-white">its time for africa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--gallery end-->
+
+{%endblock%}
+   
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12 segment-one">
+                        <h3>Time Travellers</h3>
+                        <p>Customer satisfaction is our top priority.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-12 segment-two">
+                        <h3>OUR PRODUCTS</h3>
+                        <ol>
+                            <li><a href="/Hotels">Hotels Booking</a></li>
+                            <li><a href="/Flights">Flights Ticket Booking</a></li>
+                            <li><a href="/Bus">Bus Booking</a></li>
+                            <li><a href="/Trains">Train Ticket Booking</a></li>
+                        </ol>
+                    </div>                 
+                    <div class="col-lg-3 col-md-3 col-12 segment-three">
+                        <h3>COMPANY</h3>
+                        <ol>
+                            <li><a href="/aboutus">AboutUs</a></li>
+                            <li><a href="/contactus">ContactUs</a></li>
+                            <li><a href="/offers">Offers</a></li>
+                        </ol>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-12 segment-four">
+                        <h2>Follow us</h2>
+                        <p>Please Follow us on our Social Media Profile in order to keep updated</p>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>              
+        <p class="footer-bottom-text "> @copyright Timetraveller.com 2025. All right reserved to Shahriyar_Khan</p>
+    </footer>
+     <!-- Chat Icon -->
+  <div id="chatIcon" onclick="toggleBot()">💬</div>
+  <script>
+    function toggleBot() {
+        // Redirect to chat.html
+window.location.href = 'chat';
+    }
+</script>
+</body>
+</html>

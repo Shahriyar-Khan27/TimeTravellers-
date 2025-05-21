@@ -1,0 +1,36 @@
+{%extends "index.html"%}
+
+{%block content%}
+
+<br/>
+<a href="/">Add Bookings</a>
+<br/>
+<hr/>
+
+<h1>My Bookings!!!</h1>
+
+<table class="table">
+    <tr><th>Booking Id</th><th>Product Name</th><th>Price</th>
+        <th>Seats</th></tr>
+    {%for prd in session["MyBooking"].values()%}
+    <form method="post" action="/RemoveFromCart">
+    <tr>
+        <td>{{prd[0]}}
+            <input type="hidden" name="pid" value="{{prd[0]}}"/>
+        </td>
+        <td>{{prd[1]}}</td>
+        <td>{{prd[2]}}</td>        
+        <td>{{prd[3]}}</td>
+        <td><input type="submit" class="btn  text-white btn-outline-danger btn-primary " value="Remove from my bookings"/></td>
+    </tr>
+</form>
+    {%endfor%}
+    <tr><td></td><td>Total = </td><td>{{session["total"]}}</td><td></td></tr>
+</table>
+
+<hr/>
+<p>
+    <a href="/MakePayment">Proceed To Make Payment</a>
+</p>
+
+{%endblock%}

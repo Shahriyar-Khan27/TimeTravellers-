@@ -1,0 +1,29 @@
+{%extends "index.html"%}
+
+{%block content%}
+
+<br/>
+<a href="/AddProduct">Add Product</a>
+<br/>
+<hr/>
+
+<h1>Show All Products!!!</h1>
+
+<table class="table">
+    <tr><th>Product Id</th><th>Product Name</th><th>Price</th><th>Image</th><th>Category</th></tr>
+    {%for prd in prds%}
+    <tr>
+        <td>{{prd[0]}}</td>
+        <td>{{prd[1]}}</td>
+        <td>{{prd[2]}}</td>
+        <td><img src="../static/images/{{prd[3]}}" height="100px" width="120px"/>
+        <td>{{prd[4]}}</td>
+
+        <td><a href="/EditProduct/{{prd[0]}}">Edit</a></td>
+        <td><a href="/DeleteProduct/{{prd[0]}}">Delete</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+{%endblock%}

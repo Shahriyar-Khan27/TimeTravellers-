@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>Show Products!!!</h1>
+<div class="container">
+    <form method="post" action="/AddToCart">
+        <table class="table">
+            <tr>
+                <th>Pid</th>
+                <td>
+                    {{ prd['pid'] }}
+                    <input type="hidden" name="pid" value="{{ prd['pid'] }}">
+                </td>
+            </tr>
+            <tr>
+                <th>Pname</th>
+                <td>
+                    {{ prd['pname'] }}
+                    <input type="hidden" name="pname" value="{{ prd['pname'] }}">
+                </td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>
+                    {{ prd['price'] }}
+                    <input type="hidden" name="price" value="{{ prd['price'] }}">
+                </td>
+            </tr>
+            <tr>
+                <th>Seats (Qty)</th>
+                <td>
+                    <select name="qty" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn btn-outline-info">Add To Cart</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}

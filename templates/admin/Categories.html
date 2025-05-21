@@ -1,0 +1,27 @@
+{%extends "index.html"%}
+
+{%block content%}
+<div class="container">    
+<a href="/AddCategory">Add New Category</a>
+    <h1>Categories</h1>
+<table class="table">
+    <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+    
+    {%for cat in cats%}
+       <tr>
+           <td>{{cat[0]}}</td>
+           <td>{{cat[1]}}</td>
+           <th><a href="EditCategory/{{cat[0]}}">Edit</a></th>
+           <th><a href="DeleteCategory/{{cat[0]}}">Delete</a></th>
+       </tr>
+    {%endfor%}
+
+</table>
+</div>
+{%endblock%}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+{%extends "index.html"%}
+
+{%block content%}
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sansdisplay=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        /* Make the image fully responsive */
+        
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*booking of hotel*/
+        #hotels_booking {
+            font-family: 'PT Sans', sans-serif;
+            background-image: url("../static/images/index_1.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hotels_booking-form .form-control::-webkit-input-placeholder {
+            color: rgba(82, 82, 84, 0.4);
+        }
+
+        .hotels_booking-form input[type="date"].form-control:invalid {
+            color: rgba(82, 82, 84, 0.4);
+        }
+    </style>
+
+</head>
+
+<body>
+
+     <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1>Hotels Booking</h1>
+         
+        </div>
+    </div>
+
+
+
+    <div id="hotels_booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="hotels_booking-form">
+            
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                
+                                <div class="modal-body">
+                                    <form method="POST" action="/ShowProducts/4">
+                               
+                                    <div class="form-group">
+                                        <span class="form-label">Your Destination</span>
+                                        <input class="form-control" type="text" name="destination" placeholder="Enter a destination or hotel name">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Check In</span>
+                                                <input class="form-control" type="date" name="date1" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Check out</span>
+                                                <input class="form-control" type="date"  name="date2" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Rooms</span>
+                                                <select class="form-control" name="rooms">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Adults</span>
+                                                <select class="form-control" name="adults">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Children</span>
+                                                <select class="form-control" name="children">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-btn">
+                                        <button type="submit" class="btn btn-outline-info">Check availability</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!--Cards -->
+    <section>
+        <div class=container>
+            <h1 class="text-center text-capitalize pt-5">offers in store for you</h1>
+            <hr class="w-25 mx-auto pt-5 ">
+
+            
+            <div class="row text-center mb-5">
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer7.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Pay Later hotels offers</h4>
+                            <p class="card-text">Valid till:10th July 2025 </p>
+                            <a href="/offers" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer12.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Christmas offers</h4>
+                            <p class="card-text">Valid till:10th July 2025</p>
+                            <a href="/offers" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer6.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Special offers</h4>
+                            <p class="card-text">Valid till:10th July 2025</p>
+                            <a href="/offers" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+           
+
+    </section>
+ <!--end of Cards-->
+
+
+<!--gallery start-->
+    <section>
+        <div class=container>
+            <h1 class="text-center text-capitalize  pt-5">Rooms</h1>
+            <p class="text-center text-secondary">The best you can get</p>
+            <hr class="w-25 mx-auto pt-5 ">
+
+            <div class="row text-center ">
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/room2.jpg" alt="" class="img-fluid">
+                </div>
+
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/room6.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/room1.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/room4.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/room3.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-4 col-md-2 col-12 mb-4">
+                    <img src="../static/images/room5.jpg" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+<!--gallery end-->
+
+
+
+</body>
+</html>
+{%endblock%}              

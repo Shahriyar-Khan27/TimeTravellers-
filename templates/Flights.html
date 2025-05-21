@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+{%extends "index.html"%}
+
+{%block content%}
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        /* Make the image fully responsive */
+        
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*for flight booking */
+
+
+        #flights_booking {
+            font-family: 'PT Sans', sans-serif;
+            background-image: url("../static/images/plane5.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .flights_booking-form .form-control::-webkit-input-placeholder {
+            color: rgba(82, 82, 84, 0.4);
+        }
+
+        .flights_booking-form .form-control:-ms-input-placeholder {
+            color: rgba(82, 82, 84, 0.4);
+        }
+
+        .flights_booking-form .form-control::placeholder {
+            color: rgba(82, 82, 84, 0.4);
+        }
+
+        .flights_booking-form input[type="date"].form-control:invalid {
+            color: rgba(82, 82, 84, 0.4);
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container text-center">
+                    <h1>Flight Booking</h1>
+                
+                </div>
+            </div>
+
+
+    <section>
+            <!--booking form starts-->   
+                <div id="flights_booking" class="section">
+                    <div class="section-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="flights_booking-form">
+                        
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                            
+                                            <div class="modal-body">
+                                                <form method="POST" action="/ShowProducts/3"> 
+
+                                                <div class="form-group">
+                                                    <div class="form-checkbox">
+                                                        <label for="one-way">
+                                                            <input type="radio" id="one-way" >
+                                                            <span></span>OneWay
+                                                        </label>
+                                                        <label for="roundtrip">
+                                                            <input type="radio" id="roundtrip">
+                                                            <span></span>Roundtrip
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <span class="form-label">From</span>
+                                                            <select class="form-control" type="text" name="from" placeholder="City or airport">
+                                                                <option value="" disabled selected>Choose your Source</option>
+                                                                <option>Mumbai(BOM) IN</option>
+                                                                <option>New Delhi(DEL) IN</option>
+                                                                <option>Pune(PNQ) IN</option>
+                                                                <option>Goa (GO) IN</option>
+                                                                <option>Bengaluru(BLR) IN</option>
+                                                                <option>Chennai(MAA) IN</option>
+                                                                <option>Hyderabad(HYD) IN</option>
+                                                                <option>Kolkata(CCU) IN</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <span class="form-label">To</span>
+                                                            <select class="form-control" type="text" name="to" placeholder="City or airport">
+                                                                <option value="" disabled selected>Choose your Destination</option>
+                                                                <option>Mumbai(BOM) IN</option>
+                                                                <option>New Delhi(DEL) IN</option>
+                                                                <option>Pune(PNQ) IN</option>
+                                                                <option>Goa (GO) IN</option>
+                                                                <option>Bengaluru(BLR) IN</option>
+                                                                <option>Chennai(MAA) IN</option>
+                                                                <option>Hyderabad(HYD) IN</option>
+                                                                <option>Kolkata(CCU) IN</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-4 col-12">
+                                                        <div class="form-group">
+                                                            <span class="form-label">Departure Date</span>
+                                                            <input class="form-control" type="date" name="date1" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-4 col-12">
+                                                        <div class="form-group">
+                                                            <span class="form-label">Return Date</span>
+                                                            <input class="form-control" type="date" name="date2" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label >Travellers</label>
+                                                            <select type="number" id="number" class="form-control" name="travellers">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                            </select>
+                                                            <span class="select-arrow"></span>
+                                                        </div>
+                                                    </div>                                                                     
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <span class="form-label">Class</span>
+                                                            <select class="form-control" name="class">
+                                                                <option>Economy class</option>
+                                                                <option>Business class</option>
+                                                                <option>First class</option>
+                                                            </select>
+                                                            <span class="select-arrow"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-btn">
+                                                    <button type="submit" class="btn btn-outline-info">Show Flights</button>
+                                                </div>
+                                               
+                                            
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+                  
+    </section>
+
+    <!--Cards -->
+    <section>
+        <div class=container>
+            <h1 class="text-center text-capitalize pt-5">offers in store for you</h1>
+            <hr class="w-25 mx-auto pt-5 ">
+
+            
+            <div class="row text-center mb-5">
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer8.png" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Super Savings</h4>
+                            <p class="card-text">Use code:YATRANEW</p>
+                            <p class="card-text">Valid till:10th July 2025 </p>
+                            <a href="/offers" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer1.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Instant Discount</h4>
+                            <p class="card-text">Valid till:10th July 2025</p>
+                            <a href="/offers" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/images/cardoffer3.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Fedral Bank offers</h4>
+                            <p class="card-text">Get Rs.1200 off*</p>
+                            <p class="card-text">Valid till:10th July 2025</p>
+                            <a href="/offers" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+           
+
+    </section>
+ <!--end of Cards-->
+</body>
+</html>
+{%endblock%}

@@ -1,0 +1,42 @@
+{%extends "index.html"%}
+
+{%block content%}
+
+
+
+<h1>Add Booking</h1>
+
+<form method="post"  
+    enctype = "multipart/form-data">                         <!--for file upload option-->
+<table class="table">                
+    <td>Enter Product Name</td>                                                  <!--name of bu/train/flght/hotels-->
+        <td><input type="text" name="cname" placeholder="Product name"/></td>
+    </tr>
+    <td>Enter Price</td>
+        <td><input type="number" name="price" placeholder="Price"/></td>
+    </tr>
+    <td>Select Image</td>
+        <td><input type="file" name="image"/></td>
+    </tr>
+    <td>Select Category</td>
+        <td><select name="catid">
+            {%for cat in cats%}
+            <option value="{{cat[0]}}">{{cat[1]}}</option>
+            {%endfor%}
+            
+        </select></td>
+    </tr>
+
+        <td><input type="submit" class="btn btn-outline-info" value="Add Booking"/></td>
+        <td></td>
+    </tr>
+    
+</table>
+</form>
+
+
+
+
+
+
+{%endblock%}

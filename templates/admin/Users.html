@@ -1,0 +1,31 @@
+{%extends "index.html"%}
+
+{%block content%}
+
+<h1>Users Details!!!</h1>
+
+<table class="table">
+    <tr><th>username</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Sex</th>
+        <th>Password</th>
+        
+
+        
+    {%for user in users%}
+    <tr>
+        <td>{{user[0]}}</td>
+        <td>{{user[1]}}</td>
+        <td>{{user[2]}}</td>
+        <td>{{user[3]}}</td>
+        <td>{{user[4]}}</td>
+
+       
+        <td><a href="/RemoveUser/{{user[1]}}">Remove User</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+{%endblock%}
